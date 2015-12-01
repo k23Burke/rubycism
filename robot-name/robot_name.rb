@@ -1,11 +1,24 @@
 class Robot
   def initialize
-    @name = newName()
+    newName()
+  end
+
+  def name
+    @name
+  end
+
+  def reset
+    newName()
   end
 
   def newName
-    l = 2.times(('A'..'Z').to_a[Random.rand(26)])
-    puts l
+    @name = ''
+    2.times do
+      @name += (('A'..'Z').to_a[rand(26)])
+    end
+    3.times do
+      @name += rand(9).to_s
+    end
   end
 
 end
