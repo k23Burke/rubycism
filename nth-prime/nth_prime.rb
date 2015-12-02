@@ -6,8 +6,11 @@ class Prime
   end
 
   def self.nth (n)
+    if (n < 1)
+      raise ArgumentError
+    end
     currentNth = 1
-    currentNumber += 1
+    currentNumber = FIRSTPRIME + 1
     while currentNth < n
       currentPrime += 1
       if(checkIfPrime(currentPrime))
@@ -15,13 +18,14 @@ class Prime
         @prime_array.push(currentPrime)
       end
     end
-    return @prime_array[n]
+    puts @prime_array[n-1].to_s
+    return @prime_array[n-1]
   end
 
   def checkIfPrime(n)
     ret = true
     (2..n).each do |i|
-      if((i % n) % 1 != 0) do
+      if((i % n) % 1 != 0)
         ret = false
       end
     end
