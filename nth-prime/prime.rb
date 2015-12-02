@@ -7,7 +7,7 @@ class Prime
 
   def self.nth (n)
     currentNth = 1
-    currentNumber += 1
+    currentNumber = FIRSTPRIME + 1
     while currentNth < n
       currentPrime += 1
       if(checkIfPrime(currentPrime))
@@ -27,5 +27,11 @@ class Prime
     end
     ret
   end
+
+end
+
+
+class Integer
+
 
 end
