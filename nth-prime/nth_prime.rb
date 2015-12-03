@@ -1,35 +1,34 @@
 class Prime
+
   FIRSTPRIME = 2
 
-  def initialize
-    @prime_array = [FIRSTPRIME]
-  end
-
   def self.nth (n)
+    @prime_array = [FIRSTPRIME]
     if (n < 1)
       raise ArgumentError
     end
     currentNth = 1
-    currentNumber = FIRSTPRIME + 1
-    while currentNth < n
-      currentPrime += 1
-      if(checkIfPrime(currentPrime))
+    currentNumber = FIRSTPRIME
+    while currentNth < n do
+      currentNumber += 1
+      if(checkIfPrime(currentNumber, @prime_array))
         currentNth += 1
-        @prime_array.push(currentPrime)
+        @prime_array.push(currentNumber)
       end
     end
-    puts @prime_array[n-1].to_s
     return @prime_array[n-1]
   end
 
-  def checkIfPrime(n)
-    ret = true
-    (2..n).each do |i|
-      if((i % n) % 1 != 0)
-        ret = false
+  private
+
+    def checkIfPrime(n, array)
+      ret = true
+      array.each do |i|
+        if((n % i) == 0)
+          ret = false
+        end
       end
+      ret
     end
-    ret
-  end
 
 end
